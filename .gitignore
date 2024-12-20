@@ -27,3 +27,5 @@ yarn-error.log
 .idea/
 vendor/
 node_modules
+
+.DS_Store
