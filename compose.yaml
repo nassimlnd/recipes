@@ -1,9 +1,9 @@
 services:
   npm:
     image: node:22-alpine
-    working_dir: /app
+    working_dir: /code
     volumes:
-      - .:/app
+      - .:/code
     command: sh -c "npm install && npm run build"
 
   nginx:
