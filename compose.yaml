@@ -1,25 +1,48 @@
-
 services:
-###> doctrine/doctrine-bundle ###
+  npm:
+    image: node:22-alpine
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: "npm run build"
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "8080:80"
+    working_dir: /code
+    volumes:
+      - ./:/code
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+
   database:
     image: postgres:${POSTGRES_VERSION:-16}-alpine
     environment:
-      POSTGRES_DB: ${POSTGRES_DB:-app}
-      # You should definitely change the password in production
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-!ChangeMe!}
-      POSTGRES_USER: ${POSTGRES_USER:-app}
+      POSTGRES_DB: recipes
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: recipes
     healthcheck:
-      test: ["CMD", "pg_isready", "-d", "${POSTGRES_DB:-app}", "-U", "${POSTGRES_USER:-app}"]
+      test: ["CMD", "pg_isready", "-d", "recipes", "-U", "recipes"]
       timeout: 5s
       retries: 5
       start_period: 60s
     volumes:
       - database_data:/var/lib/postgresql/data:rw
-      # You may use a bind-mounted host directory instead, so that it is harder to accidentally remove the volume and lose all your data!
-      # - ./docker/db/data:/var/lib/postgresql/data:rw
-###< doctrine/doctrine-bundle ###
+    ports:
+        - "5432:5432"
+
+  php:
+    image: php:8.3-fpm-alpine
+    working_dir: /code
+    volumes:
+      - ./:/code
+    command: >
+      sh -c "
+      chown -R www-data:www-data var &&
+      chmod -R 775 var &&
+      php-fpm
+      "
 
 volumes:
-###> doctrine/doctrine-bundle ###
   database_data:
-###< doctrine/doctrine-bundle ###
+
