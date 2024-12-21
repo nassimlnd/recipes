@@ -5,7 +5,9 @@ module.exports = {
     extend: {
       textColor: {
         primary: "#101828",
+        secondary: "#344054",
         tertiary: "#475467",
+        quarternary: "#667085",
         button: {
           secondary: {
             fg: "#344054"
@@ -13,9 +15,17 @@ module.exports = {
         }
       },
       borderColor: {
+        primary: "#D0D5DD",
+        secondary: "#E4E7EC",
         button: {
           secondary: "#D0D5DD",
         }
+      },
+      backgroundColor: {
+        secondary: "#F9FAFB"
+      },
+      placeholderColor: {
+        DEFAULT: "#667085"
       }
     },
   },
