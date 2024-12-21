@@ -23,5 +23,7 @@ WORKDIR /code
 # Copier les fichiers du projet dans l'image (facultatif, car tu montes un volume)
 # COPY . /code
 
+RUN composer install --no-dev --optimize-autoloader
+
 # Exécuter le script d'entrée pour ajuster les permissions et démarrer PHP-FPM
 ENTRYPOINT ["sh", "-c", "chown -R www-data:www-data var && chmod -R 775 var && php-fpm"]
