@@ -7,12 +7,8 @@ Le sujet du TP est de créer un site de recettes de cuisine.
 
 ## Installation
 
-1. Cloner le projet
-2. Installer les dépendances avec la commande `composer install`
-3. Créer la base de données avec la commande `php bin/console doctrine:database:create`
-4. Créer les tables de la base de données avec la commande `php bin/console doctrine:migrations:migrate`
-5. Charger les fixtures avec la commande `php bin/console doctrine:fixtures:load`
-6. Lancer le serveur avec la commande `symfony server:start`
+- Cloner le projet
+- Lancer le docker avec la commande `docker-compose up -d --build`
 
 ## Fonctionnalités
 

@@ -32,16 +32,14 @@ services:
         - "5432:5432"
 
   php:
-    image: php:8.3-fpm-alpine
+    build:
+      context: .
+      dockerfile: Dockerfile
     working_dir: /code
     volumes:
       - ./:/code
-    command: >
-      sh -c "
-      chown -R www-data:www-data var &&
-      chmod -R 775 var &&
-      php-fpm
-      "
+    ports:
+      - "9000:9000" # Si nécessaire pour PHP-FPM
 
 volumes:
   database_data:
