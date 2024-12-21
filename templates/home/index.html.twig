@@ -95,20 +95,17 @@
                 <nav>
                     <ul class="flex items-center gap-8">
                         <li>
-                            <a class="font-semibold text-tertiary" href="{{ path('app_home') }}" >Home</a>
+                            <a class="font-semibold text-tertiary" href="{{ path('app_home') }}" >Accueil</a>
                         </li>
                         <li>
-                            <a class="font-semibold text-tertiary"  href="{{ path('app_home') }}" >About</a>
-                        </li>
-                        <li>
-                            <a class="font-semibold text-tertiary" href="#pricing" >Pricing</a>
+                            <a class="font-semibold text-tertiary" href="#pricing" >Plans</a>
                         </li>
                     </ul>
                 </nav>
             </div>
             <div class="flex items-center gap-3">
-                <a class="font-semibold text-tertiary px-4 py-2.5 hover:bg-gray-100 rounded-lg transition ease-in-out duration-200" href="#">Log in</a>
-                <a class="px-4 py-2.5 bg-orange-600 hover:bg-orange-700 text-white font-semibold transition ease-in-out duration-200 rounded-lg" href="#">Sign up</a>
+                <a class="font-semibold text-tertiary px-4 py-2.5 hover:bg-gray-100 rounded-lg transition ease-in-out duration-200" href="/login">Se connecter</a>
+                <a class="px-4 py-2.5 bg-orange-600 hover:bg-orange-700 text-white font-semibold transition ease-in-out duration-200 rounded-lg" href="/register">S'inscrire</a>
             </div>
         </header>
 
@@ -326,8 +323,164 @@
                 </svg>
             </div>
         </section>
-        <section id="pricing" class="max-w-7xl mx-auto w-full ">
+        <section id="pricing" class="max-w-7xl mx-auto w-full py-24 px-8">
+            <div class="w-full space-y-5">
+                <div class="flex flex-col gap-3">
+                    <p class="text-orange-700 font-semibold">Plans</p>
+                    <h2 class="text-primary font-semibold text-4xl">Des abonnements pour tous les gourmets</h2>
+                </div>
+                <p class="text-tertiary font-normal text-xl">Explorez nos recettes et fonctionnalités adaptées à vos besoins, que vous soyez un chef amateur ou un passionné de cuisine.</p>
+            </div>
 
+            <div class="w-full flex gap-8 mt-16">
+                {% for i in 0..2 %}
+                <div class="border border-secondary rounded-2xl w-full custom-shadow-lg relative">
+                    {% if i == 0 %}
+                        <div class="absolute top-0 right-0 -translate-y-[60%] translate-x-[60%] flex">
+                            <svg class="mt-2.5" xmlns="http://www.w3.org/2000/svg" width="60" height="46" viewBox="0 0 60 46" fill="none">
+                                <path d="M9.21934 42.4487C9.06199 43.262 9.59378 44.0489 10.4071 44.2063C11.2205 44.3636 12.0074 43.8318 12.1647 43.0185L9.21934 42.4487ZM50.5829 3.79132C51.4038 3.68035 51.9794 2.92487 51.8684 2.10391C51.7574 1.28295 51.0019 0.707389 50.181 0.818364L50.5829 3.79132ZM4.78603 32.3309C4.35916 31.6209 3.43756 31.3914 2.72758 31.8183C2.0176 32.2452 1.78809 33.1668 2.21496 33.8768L4.78603 32.3309ZM8.97548 42.21L7.68995 42.9829L7.69067 42.9841L8.97548 42.21ZM12.592 43.2607L11.9791 41.8917L11.9778 41.8922L12.592 43.2607ZM23.5111 40.0157C24.2672 39.6772 24.6057 38.7898 24.2672 38.0337C23.9287 37.2776 23.0413 36.939 22.2852 37.2776L23.5111 40.0157ZM10.692 42.7336C12.1647 43.0185 12.1647 43.0188 12.1646 43.0191C12.1646 43.0191 12.1646 43.0193 12.1646 43.0193C12.1646 43.0193 12.1646 43.019 12.1647 43.0185C12.1649 43.0174 12.1654 43.0153 12.166 43.0122C12.1672 43.0059 12.1693 42.9954 12.1722 42.9809C12.1781 42.9518 12.1875 42.9065 12.2004 42.8457C12.2262 42.7241 12.2663 42.5405 12.3221 42.3009C12.4337 41.8218 12.6076 41.1194 12.8539 40.2422C13.3469 38.4864 14.1279 36.0372 15.2761 33.2783C17.5821 27.7376 21.3224 21.0616 27.0826 16.2003L25.1477 13.9077C18.8751 19.2014 14.9038 26.3652 12.5064 32.1256C11.303 35.0172 10.4843 37.5838 9.96562 39.4312C9.70608 40.3556 9.52112 41.1017 9.4003 41.6205C9.33987 41.88 9.29545 42.0828 9.26573 42.2229C9.25087 42.2929 9.23968 42.3472 9.23201 42.3851C9.22817 42.404 9.22521 42.4189 9.2231 42.4295C9.22205 42.4348 9.22121 42.4391 9.22059 42.4423C9.22027 42.4439 9.22001 42.4452 9.21981 42.4463C9.2197 42.4468 9.21959 42.4474 9.21953 42.4477C9.21943 42.4482 9.21934 42.4487 10.692 42.7336ZM27.0826 16.2003C38.8951 6.23119 48.2836 4.10213 50.5829 3.79132L50.181 0.818364C47.3224 1.20477 37.4008 3.56674 25.1477 13.9077L27.0826 16.2003ZM2.21496 33.8768L7.68995 42.9829L10.261 41.437L4.78603 32.3309L2.21496 33.8768ZM7.69067 42.9841C8.83293 44.8799 11.2192 45.521 13.2062 44.6292L11.9778 41.8922C11.2767 42.2069 10.5649 41.9414 10.2603 41.4358L7.69067 42.9841ZM13.2049 44.6298L23.5111 40.0157L22.2852 37.2776L11.9791 41.8917L13.2049 44.6298Z" fill="#C2410C"/>
+                            </svg>
+                            <p class="font-semibold text-orange-700 text-sm">Populaire !</p>
+                        </div>
+                    {% endif %}
+                    <div class="flex flex-col items-center pt-10 px-8 gap-4">
+                        <h3 class="font-semibold text-primary text-5xl text-center">$10/mth</h3>
+                        <div class="w-full space-y-1">
+                            <p class="font-semibold text-primary text-xl text-center">Basic Plan</p>
+                            <p class="text-tertiary font-normal text-center text-base">Billed annually.</p>
+                        </div>
+                    </div>
+                    <div class="p-8 space-y-4">
+                        {% for i in 0..4 %}
+                            <div class="flex items-center w-full gap-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z" fill="#DCFAE6"/>
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M17.098 7.39016L9.93797 14.3002L8.03797 12.2702C7.68797 11.9402 7.13797 11.9202 6.73797 12.2002C6.34797 12.4902 6.23797 13.0002 6.47797 13.4102L8.72797 17.0702C8.94797 17.4102 9.32797 17.6202 9.75797 17.6202C10.168 17.6202 10.558 17.4102 10.778 17.0702C11.138 16.6002 18.008 8.41016 18.008 8.41016C18.908 7.49016 17.818 6.68016 17.098 7.38016V7.39016Z" fill="#079455"/>
+                                </svg>
+                                <p class="text-tertiary font-normal">Access to all basic features</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="pb-8 px-8">
+                        <a href="#" class="bg-orange-600 hover:bg-orange-700 text-white font-semibold flex items-center justify-center transition ease-in-out duration-200 py-3 px-5 w-full rounded-lg">Get started</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
         </section>
+        <footer class="w-full bg-secondary pt-16 pb-12 space-y-16">
+            <div class="max-w-7xl mx-auto w-full px-8 flex justify-between">
+                <div class="flex flex-col gap-8">
+                    <div class="flex items-center gap-2">
+                        <svg class="w-8 h-8" fill="none" height="48" viewBox="0 0 48 48" width="48" xmlns="http://www.w3.org/2000/svg"
+                             xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <filter id="a" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse" height="54"
+                                    width="48" x="0" y="-3">
+                                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                                <feBlend in="SourceGraphic" in2="BackgroundImageFix" mode="normal" result="shape"/>
+                                <feColorMatrix in="SourceAlpha" result="hardAlpha" type="matrix"
+                                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+                                <feOffset dy="-3"/>
+                                <feGaussianBlur stdDeviation="1.5"/>
+                                <feComposite in2="hardAlpha" k2="-1" k3="1" operator="arithmetic"/>
+                                <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"/>
+                                <feBlend in2="shape" mode="normal" result="effect1_innerShadow_3051_46877"/>
+                                <feColorMatrix in="SourceAlpha" result="hardAlpha" type="matrix"
+                                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+                                <feOffset dy="3"/>
+                                <feGaussianBlur stdDeviation="1.5"/>
+                                <feComposite in2="hardAlpha" k2="-1" k3="1" operator="arithmetic"/>
+                                <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.1 0"/>
+                                <feBlend in2="effect1_innerShadow_3051_46877" mode="normal"
+                                         result="effect2_innerShadow_3051_46877"/>
+                                <feColorMatrix in="SourceAlpha" result="hardAlpha" type="matrix"
+                                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+                                <feMorphology in="SourceAlpha" operator="erode" radius="1"
+                                              result="effect3_innerShadow_3051_46877"/>
+                                <feOffset/>
+                                <feComposite in2="hardAlpha" k2="-1" k3="1" operator="arithmetic"/>
+                                <feColorMatrix type="matrix"
+                                               values="0 0 0 0 0.0627451 0 0 0 0 0.0941176 0 0 0 0 0.156863 0 0 0 0.24 0"/>
+                                <feBlend in2="effect2_innerShadow_3051_46877" mode="normal"
+                                         result="effect3_innerShadow_3051_46877"/>
+                            </filter>
+                            <filter id="b" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse" height="42"
+                                    width="30" x="9" y="5.25">
+                                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                                <feColorMatrix in="SourceAlpha" result="hardAlpha" type="matrix"
+                                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+                                <feMorphology in="SourceAlpha" operator="erode" radius="1.5"
+                                              result="effect1_dropShadow_3051_46877"/>
+                                <feOffset dy="2.25"/>
+                                <feGaussianBlur stdDeviation="2.25"/>
+                                <feComposite in2="hardAlpha" operator="out"/>
+                                <feColorMatrix type="matrix"
+                                               values="0 0 0 0 0.141176 0 0 0 0 0.141176 0 0 0 0 0.141176 0 0 0 0.1 0"/>
+                                <feBlend in2="BackgroundImageFix" mode="normal" result="effect1_dropShadow_3051_46877"/>
+                                <feBlend in="SourceGraphic" in2="effect1_dropShadow_3051_46877" mode="normal"
+                                         result="shape"/>
+                            </filter>
+                            <linearGradient id="c" gradientUnits="userSpaceOnUse" x1="24" x2="26" y1=".000001" y2="48">
+                                <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+                                <stop offset="1" stop-color="#fff" stop-opacity=".12"/>
+                            </linearGradient>
+                            <linearGradient id="d">
+                                <stop offset="0" stop-color="#fff" stop-opacity=".8"/>
+                                <stop offset="1" stop-color="#fff" stop-opacity=".5"/>
+                            </linearGradient>
+                            <linearGradient id="e" gradientUnits="userSpaceOnUse" x1="24" x2="24" xlink:href="#d" y1="9"
+                                            y2="29"/>
+                            <linearGradient id="f" gradientUnits="userSpaceOnUse" x1="24" x2="24" xlink:href="#d" y1="9"
+                                            y2="39"/>
+                            <linearGradient id="g" gradientUnits="userSpaceOnUse" x1="19.9308" x2="19.9308" xlink:href="#d"
+                                            y1="9" y2="29"/>
+                            <linearGradient id="h" gradientUnits="userSpaceOnUse" x1="24" x2="24" y1="0" y2="48">
+                                <stop offset="0" stop-color="#fff" stop-opacity=".12"/>
+                                <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+                            </linearGradient>
+                            <clipPath id="i">
+                                <rect height="48" rx="12" width="48"/>
+                            </clipPath>
+                            <g filter="url(#a)">
+                                <g clip-path="url(#i)">
+                                    <rect fill="#ff692e" height="48" rx="12" width="48"/>
+                                    <path d="m0 0h48v48h-48z" fill="url(#c)"/>
+                                    <g filter="url(#b)">
+                                        <path d="m26 29c5.5228 0 10-4.4772 10-10s-4.4772-10-10-10h-14v20z" fill="url(#e)"/>
+                                        <path d="m12 9 24 30h-16l-8-10z" fill="url(#f)"/>
+                                        <path d="m27.8616 28.827c-.6031.1136-1.2254.173-1.8616.173h-14v-20z"
+                                              fill="url(#g)"/>
+                                    </g>
+                                </g>
+                                <rect height="46" rx="11" stroke="url(#h)" stroke-width="2" width="46" x="1" y="1"/>
+                            </g>
+                        </svg>
+                        <h1 class="font-semibold text-xl">Recipes</h1>
+                    </div>
+                    <nav>
+                        <ul class="flex gap-4 mt-4">
+                            <li><a href="/" class="font-semibold text-tertiary">Accueil</a></li>
+                            <li><a href="#pricing" class="font-semibold text-tertiary">Plans</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="space-y-4">
+                    <p class="font-semibold text-primary text-sm">Restez à jour</p>
+                    <div class="flex items-center gap-4">
+                        <input type="email" name="newsletterEmail" placeholder="Votre adresse mail" class="px-3.5 py-2.5 placeholder:placeholder border border-primary rounded-lg">
+                        <button class="bg-orange-600 hover:bg-orange-700 text-white font-semibold py-2 px-4 rounded-lg">S'inscrire</button>
+                    </div>
+                </div>
+            </div>
+            <div class="max-w-7xl w-full mx-auto px-8 pt-8 flex justify-between border-t border-secondary">
+                <p class="text-quarternary font-normal">© 2024 Recipes. All rights reserved.</p>
+                <nav>
+                    <ul class="flex items-center gap-4">
+                        <li><a href="#" class="font-normal text-quarternary">Privacy Policy</a></li>
+                        <li><a href="#" class="font-normal text-quarternary">Terms of Service</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </footer>
     </main>
 {% endblock %}
