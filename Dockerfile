@@ -21,9 +21,9 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 WORKDIR /code
 
 # Copier les fichiers du projet dans l'image (facultatif, car tu montes un volume)
-# COPY . /code
+COPY . /code
 
-RUN composer install --no-dev --optimize-autoloader
+RUN export APP_ENV=prod APP_DEBUG=0 && composer install --no-dev --optimize-autoloader
 
 # Exécuter le script d'entrée pour ajuster les permissions et démarrer PHP-FPM
 ENTRYPOINT ["sh", "-c", "chown -R www-data:www-data var && chmod -R 775 var && php-fpm"]

@@ -16,6 +16,7 @@
         "webpack-cli": "^5.1.0",
         "webpack-notifier": "^1.15.0"
     },
+    "name": "recipes",
     "license": "UNLICENSED",
     "private": true,
     "scripts": {
