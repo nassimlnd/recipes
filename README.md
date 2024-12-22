@@ -9,6 +9,7 @@ Le sujet du TP est de créer un site de recettes de cuisine.
 
 - Cloner le projet
 - Lancer le docker avec la commande `docker-compose up -d --build`
+- Rendez-vous sur la page `http://localhost:8080/` pour accéder au site
 
 ## Fonctionnalités
 
