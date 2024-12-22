@@ -1,0 +1,133 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recipe index{% endblock %}
+
+{% block body %}
+    <main class="h-full w-full flex items-center">
+        <twig:Sidebar/>
+
+        <section class="h-full w-full overflow-hidden flex-grow py-8">
+            <div class="flex items-center justify-between px-8">
+                <div class="flex flex-col gap-1">
+                    <h1 class="text-primary font-semibold text-3xl">Recettes</h1>
+                    <p class="text-tertiary font-normal">
+                        Visualisez et gérez les recettes de votre application.
+                    </p>
+                </div>
+
+                <a href="/recipe/new" class="flex items-center gap-2 text-white bg-orange-600 hover:bg-orange-700 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-3 py-2.5 text-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M9.99996 4.16669V15.8334M4.16663 10H15.8333" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Créer une recette
+                </a>
+            </div>
+
+            <section class="px-8 mt-8 w-full">
+                <div class="relative overflow-x-scroll w-full sm:rounded-lg">
+                    <table class="text-sm text-left rtl:text-right text-gray-500">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                        <tr>
+                            <th scope="col" class="px-6 py-3">
+                                Id
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Name
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Description
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Preparation Time
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Cooking Time
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Servings
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Difficulty
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Cuisine
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Created At
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Updated At
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Is Published
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Average Rating
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Tags
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Action
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for recipe in recipes %}
+                            <tr class="odd:bg-white even:bg-gray-50 border-b">
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    {{ recipe.id }}
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    {{ recipe.name }}
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    {{ recipe.description }}
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    {{ recipe.preparationTime }}
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    {{ recipe.cookingTime }}
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    {{ recipe.servings }}
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    {{ recipe.difficulty.value }}
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    {{ recipe.cuisine }}
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    {{ recipe.createdAt ? recipe.createdAt|date('Y-m-d H:i:s') : '' }}
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    {{ recipe.updatedAt ? recipe.updatedAt|date('Y-m-d H:i:s') : '' }}
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    {{ recipe.isPublished ? 'Yes' : 'No' }}
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    {{ recipe.averageRating }}
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    {{ recipe.tags ? recipe.tags|json_encode : '' }}
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <a href="{{ path('app_recipe_show', {'id': recipe.id}) }}">show</a>
+                                    <a href="{{ path('app_recipe_edit', {'id': recipe.id}) }}">edit</a>
+                                </td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="6">no records found</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </section>
+    </main>
+{% endblock %}

@@ -12,7 +12,8 @@ module.exports = {
           secondary: {
             fg: "#344054"
           }
-        }
+        },
+        nav: '#667085'
       },
       borderColor: {
         primary: "#D0D5DD",

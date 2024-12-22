@@ -1,0 +1,37 @@
+App\Entity\Ingredient:
+  ingredient_{1..10}:
+    name: <word()>
+    description: <sentence(6, true)>
+
+App\Entity\User:
+  user_{1..5}:
+    email: <email()>
+    password: '\$2y\$13\$PHHeDH2tM84wZ6DZsQoz.OKJ90gvPkoZ9DjY.36D2ucGkeOXmSbm.'
+    roles: ['ROLE_USER', 'ROLE_ADMIN']
+    fullName: <name()>
+
+App\Entity\Category:
+  category_{1..5}:
+    name: <word()>
+    description: <sentence(6, true)>
+
+App\Entity\Recipe:
+  recipe_{1..5}:
+    name: <sentence(3, true)>
+    description: <paragraph(2, true)>
+    difficulty: <randomElement(['easy', 'medium', 'hard'])>
+    category: '@category_<numberBetween(1, 5)>'
+    preparationTime: <numberBetween(5, 120)>
+    cookingTime: <numberBetween(5, 120)>
+    servings: <numberBetween(1, 10)>
+    cuisine: <randomElement(['Italian', 'French', 'Japanese', 'Chinese', 'Indian', 'Mexican', 'American', 'Mediterranean', 'Middle Eastern', 'Thai', 'Vietnamese', 'Korean', 'Spanish', 'Greek', 'German', 'British', 'Brazilian', 'Caribbean', 'Moroccan', 'Turkish', 'Lebanese', 'Jewish', 'Russian', 'African', 'Scandinavian', 'Eastern European', 'Australian', 'Canadian', 'Latin American', 'Central American', 'South American', 'North American', 'European', 'Asian', 'African', 'Middle Eastern', 'South Asian', 'Southeast Asian', 'East Asian', 'West Asian', 'North African', 'South African', 'East African', 'West African', 'Central African', 'North American', 'South American', 'Central American', 'Caribbean', 'European', 'North European', 'South European', 'East European', 'West European', 'Central European', 'North Asian', 'South Asian', 'East Asian', 'West Asian', 'Central Asian', 'North American', 'South American', 'Central American', 'Caribbean', 'European', 'North European', 'South European', 'East European', 'West European', 'Central European', 'North Asian', 'South Asian', 'East Asian', 'West Asian', 'Central Asian', 'North American', 'South American', 'Central American', 'Caribbean', 'European', 'North European', 'South European', 'East European', 'West European', 'Central European', 'North Asian', 'South Asian', 'East Asian', 'West Asian', 'Central Asian', 'North American', 'South American', 'Central American', 'Caribbean', 'European', 'North European', 'South European', 'East European', 'West European', 'Central European', 'North Asian', 'South Asian', 'East Asian', 'West Asian', 'Central Asian', 'North American', 'South American', 'Central American', 'Caribbean', 'European', 'North European', 'South European', 'East European', 'West European', 'Central European', 'North Asian', 'South Asian', 'East Asian', 'West Asian', 'Central Asian', 'North American', 'South American', 'Central American', 'Caribbean', 'European', 'North European', 'South European', 'East European'])>
+    author: '@user_<numberBetween(1, 5)>'
+    createdAt: <dateTimeBetween('-1 year', 'now')>
+    updatedAt: <dateTimeBetween($createdAt, 'now')>
+
+App\Entity\RecipeIngredient:
+  recipe_ingredient_{1..20}:
+    recipe: '@recipe_<numberBetween(1, 5)>'
+    ingredient: '@ingredient_<numberBetween(1, 10)>'
+    quantity: <randomFloat(2, 0.5, 10)>
+    unit: <randomElement(['g', 'kg', 'ml', 'L', 'tsp', 'tbsp', 'cup'])>

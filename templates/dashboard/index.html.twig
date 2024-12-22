@@ -1,8 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello DashboardController!{% endblock %}
+{% block title %}Dashboard - Recipes{% endblock %}
 
 {% block body %}
-    <main class="h-full w-full">
+    <main class="h-full w-full flex items-center">
+        <twig:Sidebar />
+        <section class="h-full flex-grow pt-8">
+            <div class="px-8">
+                <h1 class="text-primary font-semibold text-3xl">Dashboard</h1>
+            </div>
+        </section>
     </main>
 {% endblock %}
